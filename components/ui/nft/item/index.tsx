@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
-import { NFTMeta } from "../../../types/nft";
+import { NftMeta } from "@_types/nft";
 
 type NFTItemProps = {
-    item: NFTMeta
+    item: NftMeta
 }
 
 const NFTItem: FunctionComponent<NFTItemProps> = ({item}) => {
