@@ -11,27 +11,29 @@ const Home: NextPage = () => {
 
 	const { ethereum, provider, contract } = useWeb3();
 
-	// console.log(contract)
+	// // console.log(contract)
 
-	const getNftInfo = async () => {
-		console.log(await contract!.name())
-		console.log(await contract!.symbol())
-	}
+	// const getNftInfo = async () => {
+	// 	console.log(await contract!.name())
+	// 	console.log(await contract!.symbol())
+	// }
 
-	if(contract) {
-		getNftInfo();
-	}
+	// if(contract) {
+	// 	getNftInfo();
+	// }
 
 
-	const getAccounts = async () => {
-			// return await provider!.listAccounts(); // ! means provider will not be undefined when this func. is called
-			const accounts = await provider!.listAccounts(); // ! means provider will not be undefined when this func. is called
-			console.log(accounts[0])
-	}
+	// const getAccounts = async () => {
+	// 		// return await provider!.listAccounts(); // ! means provider will not be undefined when this func. is called
+	// 		const accounts = await provider!.listAccounts(); // ! means provider will not be undefined when this func. is called
+	// 		console.log(accounts[0])
+	// }
 
-	if(provider) {
-		getAccounts();
-	}
+	// if(provider) {
+	// 	getAccounts();
+	// }
+
+	
 
 	return (
 		<BaseLayout>
@@ -42,7 +44,7 @@ const Home: NextPage = () => {
 				<div className="relative">
 					<div className="text-center">
 						<h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Home</h2>
-						<p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Mint a NFTs!</p>
+						<p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Trade NFTs from a vast collection!</p>
 					</div>
 					<NFTList nfts={nfts as NftMeta[]} />
 				</div>

@@ -5,6 +5,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import ActiveLink from '../link'
+import { useWeb3 } from '@providers/web3'
+import { useAccount } from '@hooks/web3'
 
 const navigation = [
 	{ name: 'Marketplace', href: '/', current: true },
@@ -15,7 +17,13 @@ function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navbar() {
+	const { account } = useAccount();
+	// const { data } = hooks.useAccount("")
+
+	console.log("account data: ", account.data)
+
+
 	return (
 		<Disclosure as="nav" className="bg-gray-800">
 			{({ open }) => (
@@ -62,27 +70,11 @@ export default function Example() {
 													{item.name}
 												</a>
 											</ActiveLink>
-											// <ActiveLink 
-											// 	key={item.name} 
-											// 	href={item.href}
-											// 	activeClass = "bg-gray-900 text-white"
-											// 	className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-											// 	aria-current={item.current ? 'page' : undefined}
-											// >
-											// 	children={item.name}
-											// </ActiveLink>
 										))}
 									</div>
 								</div>
 							</div>
 							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-								<button
-									type="button"
-									className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-								>
-									<span className="sr-only">View notifications</span>
-									<BellIcon className="h-6 w-6" aria-hidden="true" />
-								</button>
 
 								{/* Profile dropdown */}
 								<Menu as="div" className="relative ml-3">
